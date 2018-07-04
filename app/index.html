@@ -5,20 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--build:css css/style.min.css-->
     <link rel="stylesheet" href="css/style.css">
     <!--endbuild-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
     <title>Slider</title>
 </head>
 
 <body>
     <div class="slider-container">
-
+        <div class="image-container">
+            <div class="image image--1 active">
+                <div class="image__content">
+                    <h2>Title 1</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos sunt, ea nesciunt illo quibusdam odio cum
+                        soluta? Praesentium, natus esse.</p>
+                </div>
+            </div>
+            <div class="image image--2">
+                <div class="image__content">
+                    <h2>Title 2</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos sunt, ea nesciunt illo quibusdam odio cum
+                        soluta? Praesentium, natus esse.</p>
+                </div>
+            </div>
+            <div class="image image--3">
+                <div class="image__content">
+                    <h2>Title 3</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos sunt, ea nesciunt illo quibusdam odio cum
+                        soluta? Praesentium, natus esse.</p>
+                </div>
+            </div>
+        </div>
+        <div class="btn--prev btn" onclick="prev()">
+            <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="btn--next btn" onclick="next()">
+            <i class="fas fa-angle-right"></i>
+        </div>
+        <div class="indicator-container">
+            <span class="indicator active" onclick="current(1)"></span>
+            <span class="indicator" onclick="current(2)"></span>
+            <span class="indicator" onclick="current(3)"></span>
+        </div>
     </div>
 
-    <!--build:js js/main.min.js -->
-    <script src="js/script.js"></script>
-    <!-- endbuild -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

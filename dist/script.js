@@ -1,18 +1,14 @@
 "use strict";
 
-let imageIndex = 1;
-const imgsArr = [
-  "https://placeunicorn.com/1000x400/2",
-  "https://placeunicorn.com/1000x400/3",
-  "https://placeunicorn.com/1000x400/4"
-];
+var imageIndex = 1;
+var imgsArr = ["https://placeunicorn.com/1000x400/2", "https://placeunicorn.com/1000x400/3", "https://placeunicorn.com/1000x400/4"];
 
-const imageContainer = $(".image");
-const indicatorContainer = document.getElementsByClassName("indicator");
+var imageContainer = $(".image");
+var indicatorContainer = document.getElementsByClassName("indicator");
 
 // slide forward
 
-const next = () => {
+var next = function next() {
   imageContainer.removeClass("active");
   $(".indicator").removeClass("active");
 
@@ -23,12 +19,12 @@ const next = () => {
   }
 
   indicatorContainer[imageIndex - 1].className += " active";
-  $(`.image--${imageIndex}`).addClass("active");
+  $(".image--" + imageIndex).addClass("active");
 };
 
 // slide backward
 
-const prev = () => {
+var prev = function prev() {
   imageContainer.removeClass("active");
   $(".indicator").removeClass("active");
 
@@ -39,11 +35,11 @@ const prev = () => {
   }
 
   indicatorContainer[imageIndex - 1].className += " active";
-  $(`.image--${imageIndex}`).addClass("active");
+  $(".image--" + imageIndex).addClass("active");
 };
 
 // detect current slide with indicator
-const current = n => {
+var current = function current(n) {
   if (n == imageIndex && imageContainer.hasClass("active")) {
     return;
   } else {
@@ -53,10 +49,10 @@ const current = n => {
     $(".indicator").removeClass("active");
 
     indicatorContainer[imageIndex - 1].className += " active";
-    $(`.image--${imageIndex}`).addClass("active");
+    $(".image--" + imageIndex).addClass("active");
   }
   console.log("current one");
 };
 
 // auto slide
-setInterval(next, 6000);
+// setInterval(next, 4000);

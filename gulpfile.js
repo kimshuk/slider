@@ -4,7 +4,8 @@ var gulp = require("gulp"),
   cssnano = require("gulp-cssnano"),
   gulpif = require("gulp-if"),
   babel = require("gulp-babel"),
-  uglify = require("gulp-uglify");
+  uglify = require("gulp-uglify"),
+  rename = require("gulp-rename");
 
 gulp.task("sass", function() {
   return gulp
@@ -14,23 +15,29 @@ gulp.task("sass", function() {
 });
 
 gulp.task("useref", function() {
-  return gulp
-    .src("app/*.html")
-    .pipe(useref())
-    .pipe(gulpif("*.js", uglify()))
-    .pipe(gulpif("*.css", cssnano()))
-    .pipe(gulp.dest("dist"));
+  return (
+    gulp
+      .src("app/*.html")
+      .pipe(useref())
+      // .pipe(gulpif("*.js", uglify()))
+      .pipe(gulpif("*.css", cssnano()))
+      .pipe(gulp.dest("dist"))
+  );
 });
 
 gulp.task("scripts", function() {
-  return gulp
-    .src("app/js/**/*.js")
-    .pipe(
-      babel({
-        presets: ["es2015"]
-      })
-    )
-    .pipe(gulp.dest("dist"));
+  return (
+    gulp
+      .src("app/js/**/*.js")
+      .pipe(
+        babel({
+          presets: ["es2015"]
+        })
+      )
+      // .pipe(rename({ suffix: ".min" }))
+      // .pipe(uglify())
+      .pipe(gulp.dest("dist"))
+  );
 });
 
 // gulp.task("clean", function(cb) {

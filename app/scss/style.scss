@@ -1,8 +1,164 @@
-.test {
-  width: percentage(5/7);
+$desktop: 991px;
+$tablet: 768px;
+$mobile: 575px;
+
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-.test2 {
-  height: calc(100% / 3);
-  color: blue;
+.slider-container {
+  position: relative;
+  display: flex;
+}
+
+.image {
+  display: none;
+  position: relative;
+  height: 100%;
+  // border: solid black 1px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  left: -50px;
+  transition: all 1s;
+  transition-timing-function: ease;
+  opacity: 0;
+
+  @media all and (max-width: $mobile) {
+    background-size: contain;
+  }
+
+  &-container {
+    width: 100%;
+    min-height: 400px;
+
+    @media all and (max-width: $tablet) {
+      min-height: 300px;
+    }
+    @media all and (max-width: $mobile) {
+      min-height: 200px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    color: white;
+    padding: 4em 11em;
+    width: 100%;
+
+    @media all and (max-width: $tablet) {
+      text-align: center;
+      padding: 4em 7em;
+    }
+
+    @media all and (max-width: $mobile) {
+      padding: 1em;
+    }
+
+    &::after {
+      // display: none;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover {
+      // color: red;
+
+      &::after {
+        background-color: rgba(0, 0, 0, 0);
+      }
+    }
+
+    & h2,
+    p {
+      z-index: 1;
+      position: relative;
+    }
+
+    & p {
+      @media all and (max-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+
+  &--1 {
+    background-image: url("https://placeunicorn.com/1000x400/1");
+
+    @media all and (max-width: $mobile) {
+      background-image: url("https://placeunicorn.com/400x200/1");
+    }
+  }
+  &--2 {
+    background-image: url("https://placeunicorn.com/1000x400/2");
+
+    @media all and (max-width: $mobile) {
+      background-image: url("https://placeunicorn.com/400x200/2");
+    }
+  }
+  &--3 {
+    background-image: url("https://placeunicorn.com/1000x400/3");
+
+    @media all and (max-width: $mobile) {
+      background-image: url("https://placeunicorn.com/400x200/3");
+    }
+  }
+
+  &.active {
+    display: flex;
+    left: 0;
+    opacity: 1;
+  }
+}
+
+.btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  & i {
+    font-size: 42px;
+    color: white;
+  }
+
+  &--next {
+    right: 0;
+  }
+}
+
+.indicator {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: lightgray;
+
+  &.active,
+  &:hover {
+    background-color: gray;
+  }
+
+  &:not(:last-child) {
+    margin-right: 0.6rem;
+  }
+
+  &-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -24px;
+  }
 }
