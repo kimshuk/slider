@@ -24,10 +24,6 @@ $mobile: 575px;
   transition-timing-function: ease;
   opacity: 0;
 
-  @media all and (max-width: $mobile) {
-    background-size: contain;
-  }
-
   &-container {
     width: 100%;
     min-height: 400px;
