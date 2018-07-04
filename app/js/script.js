@@ -55,7 +55,6 @@ const current = n => {
     indicatorContainer[imageIndex - 1].className += " active";
     $(`.image--${imageIndex}`).addClass("active");
   }
-  console.log("current one");
 };
 
 // auto slide

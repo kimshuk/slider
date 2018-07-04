@@ -51,8 +51,7 @@ var current = function current(n) {
     indicatorContainer[imageIndex - 1].className += " active";
     $(".image--" + imageIndex).addClass("active");
   }
-  console.log("current one");
 };
 
 // auto slide
-// setInterval(next, 4000);
+setInterval(next, 6000);
