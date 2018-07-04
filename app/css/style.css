@@ -1,0 +1,6 @@
+.test {
+  width: 71.42857%; }
+
+.test2 {
+  height: calc(100% / 3);
+  color: blue; }
